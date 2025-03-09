@@ -1,0 +1,2 @@
+#!/bin/bash
+ip a add dev eth0 10.0.2.1 && ip l set eth0 up && ip r add default dev eth0
