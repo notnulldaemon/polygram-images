@@ -1,0 +1,8 @@
+[Unit]
+Description=Polygram Network Initialization Service
+
+[Service]
+ExecStart=/usr/bin/polygram-init-network
+
+[Install]
+WantedBy=multi-user.target
