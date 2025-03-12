@@ -16,7 +16,8 @@ chmod u+x /mnt/usr/bin/polygram-init-network
 cp ../files/polygram-network.service /mnt/etc/systemd/system
 rm -rf /mnt/etc/hostname
 cp /etc/hostname /mnt/etc/hostname
-chroot /mnt /bin/sh -c "apt update && apt install neofetch -y --no-install-recommends && apt install dbus dbus-x11 curl wget -y"
+chroot /mnt /bin/sh -c "apt update && apt install neofetch -y --no-install-recommends && apt install dbus dbus-x11 curl wget iptables -y"
+chroot /mnt /bin/sh -c "update-alternatives --set iptables /usr/sbin/iptables-legacy && update-alternatives --set ip6tables /usr/sbin/ip6tables-legacy"
 chroot /mnt systemctl enable polygram-network
 chroot /mnt /bin/sh -c "echo 'root:$ROOT_PASS' | chpasswd"
 echo "polygram" >/mnt/etc/hostname
