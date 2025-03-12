@@ -20,6 +20,9 @@ chroot /mnt /bin/sh -c "apt update && apt install neofetch -y --no-install-recom
 chroot /mnt systemctl enable polygram-network
 chroot /mnt /bin/sh -c "echo 'root:$ROOT_PASS' | chpasswd"
 echo "polygram" >/mnt/etc/hostname
+echo >>/mnt/etc/motd
+echo "Polygram has usage limitations set by its creator." >>/mnt/etc/motd
+echo "Violating these limitations may lead to consequences, including potential legal action." >>/mnt/etc/motd
 umount /mnt
 
 tar -czvf "$FILENAME.tar.gz" "$FILENAME"
